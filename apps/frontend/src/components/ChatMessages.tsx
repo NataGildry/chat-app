@@ -9,7 +9,7 @@ export const ChatMessages = ({ userId }: ChatMessagesProps) => {
   const messages: Message[] = useAppSelector((state : { chat: ChatState }) => state.chat.messages);
 
   return (
-    <div className="p-4 max-h-[500px] overflow-y-auto rounded-xl bg-white/70 backdrop-blur-md shadow-inner border border-white/30 mb-4 space-y-3">
+    <div className="p-4 h-[calc(100vh-300px)] overflow-y-auto rounded-xl bg-white/70 backdrop-blur-md shadow-inner border border-white/30 mb-4 space-y-3">
       {messages.length === 0 && (
         <p className="text-gray-500 text-center italic">No messages yet</p>
       )}
