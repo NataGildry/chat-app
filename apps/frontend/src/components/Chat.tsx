@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ChatInput } from './ChatInput';
 import { ChatMessages } from './ChatMessages';
 import { addMessage, type Message } from '../features/chat/chatSlice.ts';
-import { type JsonRpcRequest, type JsonRpcSuccessResponse, RpcMethods, socket } from '../socket.ts';
+import { type JsonRpcRequest, type JsonRpcSuccessResponse, RpcMethods, socket } from '../api/socket.ts';
 import { ThreeIcon } from './ThreeIcon.tsx';
 
 function isSuccessResponse<T>(obj: unknown): obj is JsonRpcSuccessResponse<T> {
