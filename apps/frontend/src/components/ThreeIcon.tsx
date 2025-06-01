@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import { useSelector } from 'react-redux';
 import { useEffect, useRef} from 'react';
 import type { RootState } from '../ store';
+import { useAppSelector } from '../hooks';
 
 export const ThreeIcon = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -10,7 +10,7 @@ export const ThreeIcon = () => {
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
 
-  const messageCount = useSelector((state: RootState) => state.chat.messages.length);
+  const messageCount = useAppSelector((state: RootState): number => state.chat.messages.length);
   const prevCountRef = useRef<number>(messageCount);
 
   useEffect(() => {

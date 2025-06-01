@@ -1,15 +1,16 @@
-
-import { addMessage } from '../features/chat/chatSlice';
 import { useState } from 'react';
-import { useAppDispatch } from '../hooks';
 
-export const ChatInput = () => {
+type ChatInputProps = {
+  onSend: (message: string) => void;
+};
+
+export const ChatInput = ({ onSend }: ChatInputProps) => {
   const [text, setText] = useState('');
-  const dispatch = useAppDispatch();
 
-  const handleSend = () => {
+  const handleSend = (): void => {
     if (text.trim() === '') return;
-    dispatch(addMessage({ id: Date.now(), text }));
+
+    onSend(text);
     setText('');
   };
 
@@ -19,12 +20,14 @@ export const ChatInput = () => {
         type="text"
         className="flex-grow px-4 py-2 rounded-full bg-white/80 text-gray-800 shadow-inner placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
         value={text}
-        onChange={event => setText(event.target.value)}
+        onChange={(event) => setText(event.target.value)}
         placeholder="Type your message..."
-        onKeyDown={event => { if (event.key === 'Enter') handleSend(); }}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') handleSend();
+        }}
       />
       <button
-        className="px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md transition-all"
+        className="px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md transition-all cursor-pointer"
         onClick={handleSend}
       >
         Send

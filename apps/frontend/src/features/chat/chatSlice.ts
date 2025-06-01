@@ -3,6 +3,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 export interface Message {
   id: number;
   text: string;
+  user: string;
 }
 
 export interface ChatState {
