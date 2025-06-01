@@ -25,7 +25,7 @@ For generating device mockups of screenshots [MockDrop](https://mockdrop.io/) wa
 
 **Chat-app** is a lightweight, real-time chat application built with React, Redux, and WebSocket communication.
 
-This project is designed as a technical demo.
+This project is designed as a technical demo and follows a **monorepo architecture** to organize both frontend and backend code within a single repository.
 
 ---
 
